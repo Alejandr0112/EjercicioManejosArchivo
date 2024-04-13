@@ -1,0 +1,64 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+struct Estudiante {
+    string nombre;
+    int edad;
+    float promedio;
+};
+
+int main() {
+    vector<Estudiante> estudiantes;
+
+    int opcion;
+    do {
+        cout << "\nMenu principal:" << endl;
+        cout << "1. Agregar estudiante" << endl;
+        cout << "2. Mostrar estudiantes" << endl;
+        cout << "3. Salir" << endl;
+        cout << "Ingrese una opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1: {
+                Estudiante nuevoEstudiante;
+                cout << "Ingrese el nombre del estudiante: ";
+                cin >> nuevoEstudiante.nombre;
+                cout << "Ingrese la edad del estudiante: ";
+                cin >> nuevoEstudiante.edad;
+                cout << "Ingrese el promedio del estudiante: ";
+                cin >> nuevoEstudiante.promedio;
+
+                estudiantes.push_back(nuevoEstudiante);
+                cout << "Estudiante agregado exitosamente." << endl;
+                break;
+            }
+            case 2: {
+                if (estudiantes.empty()) {
+                    cout << "No hay estudiantes registrados." << endl;
+                } else {
+                    cout << "\nListado de estudiantes:" << endl;
+                    for (const Estudiante& estudiante : estudiantes) { 
+                        cout << "Nombre: " << estudiante.nombre << endl;
+                        cout << "Edad: " << estudiante.edad << endl;
+                        cout << "Promedio: " << estudiante.promedio << endl;
+                        cout << "------------------------------" << endl;
+                    }
+                }
+                break;
+            }
+            case 3:
+                cout << "Saliendo del programa..." << endl;
+                break;
+            default:
+                cout << "Opcion invalida." << endl;
+        }
+    } while (opcion != 3);
+
+    return 0;
+}
+
+//Yozef Leonidas Dueñas Sagastume 0909-23-616
+//Erick Alejandro Marroquin Gonzalez 0909-23-6928
